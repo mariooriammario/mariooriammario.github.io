@@ -11,20 +11,37 @@
                 let promotion = Number(document.getElementById("promo").value);
                 let fairValue = Number(document.getElementById("fmv").value);
                 let dcc = Number(document.getElementById("dcc").value);
-                let acc = Number(document.getElementById("acc").value);
+
                 let result1 = document.getElementById("monthly");
                 let result2 = document.getElementById("today");
+
+                let a1 = document.getElementById("area1");
+                let a2 = document.getElementById("area2")
+                let a3 = document.getElementById("area3");
+                let a4 = document.getElementById("area4");
+                let a5 = document.getElementById("area5");
+                let a6 = document.getElementById("area6");
 
                 let promoCredits = promotion - fairValue;
 
                 let monthly1 = (totalPrice - phoneDownpayment);
                 let monthly2 = (monthly1 - promoCredits) / 24;
                 let today = totalPrice * 0.0875;
-                let today2 = today + dcc + acc + phoneDownpayment - fairValue;
+                let today2 = today + dcc + phoneDownpayment - fairValue;
 
                 result1.innerHTML = "$" + (monthly2).toFixed(2);
                 result2.innerHTML = "$" + (today2).toFixed(2);
+
+                a1.innerHTML = "$" + (totalPrice/24).toFixed(2);
+                a3.innerHTML = "-$" + (phoneDownpayment/24).toFixed(2);
+
+                a2.innerHTML = "$" + (today + dcc);
+                a4.innerHTML = "$" + phoneDownpayment.toFixed(2);
+
+                a5.innerHTML = "-$" + (promoCredits/24).toFixed(2);
+                a6.innerHTML = "-$" + fairValue.toFixed(2);
             }
+
         </script>
     </head>
 
@@ -60,7 +77,7 @@
             <td><input type="number"  class="input-box" id="promo" value="0"/></td>
         </tr>
         <tr>
-            <th>Fair Market Value:</th>
+            <th>Applied Fair Market Value:</th>
             <td><input type="number"  class="input-box" id="fmv" value="0"/></td>
         </tr>
         <tr><td> </td></tr>
@@ -68,11 +85,38 @@
             <th>Device Connection Charge:</th>
             <td><input type="number"  class="input-box" id="dcc" value="35"/></td>
         </tr>
+    </table>
+    <hr>
+    <table style="margin-left: auto; margin-right: auto;">
         <tr>
-            <th>Accessory Cost:</th>
-            <td><input type="number"  class="input-box" id="acc" value="0"/></td>
+            <th><h2>Breakdown</h2></th>
+        </tr>
+        <tr>
+            <th style="padding-right: 4vw;">Phone Payments:</th>
+            <th>| Taxes and Connection Fee:</th>
+        </tr>
+        <tr>
+            <td id="area1">$0.00</td>
+            <td id="area2">$0.00</td>
+        </tr>
+        <tr>
+            <th>Down Payment</th>
+            <th>| Down Payment:</th>
+        </tr>
+        <tr>
+            <td id="area3">-$0.00</td>
+            <td id="area4">$0.00</td>
+        </tr>
+        <tr>
+            <th>Monthly Credits:</th>
+            <th>| Applied Trade-In Value:</th>
+        </tr>
+        <tr>
+            <td id="area5">-$0.00</td>
+            <td id="area6">$0.00</td>
         </tr>
     </table>
+    <hr>
     <table style="margin-left: auto; margin-right: auto;">
         <tr>
             <td><h3>Monthly: </h3></td>
