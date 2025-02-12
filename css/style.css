@@ -79,4 +79,11 @@ li {
         height: 50px;
       }
 
+    .calculate {
+        text-align: center;
+        width: 30vw;
+        height: 10vw;
+        font-size: 5vw;
+    }
+
   }
