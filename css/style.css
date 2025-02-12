@@ -3,6 +3,10 @@ body {
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
+th {
+    text-align: left;
+}
+
 
 ul {
     list-style-type: none;

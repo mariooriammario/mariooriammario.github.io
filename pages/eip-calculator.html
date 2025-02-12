@@ -3,6 +3,29 @@
     <head>
         <title>EIP Calculator</title>
         <link rel="stylesheet" href="../css/style.css">
+
+        <script>
+            function findMonthly() {
+                let totalPrice = Number(document.getElementById("phonePrice").value);
+                let phoneDownpayment = Number(document.getElementById("downpayment").value);
+                let promotion = Number(document.getElementById("promo").value);
+                let fairValue = Number(document.getElementById("fmv").value);
+                let dcc = Number(document.getElementById("dcc").value);
+                let acc = Number(document.getElementById("acc").value);
+                let result1 = document.getElementById("monthly");
+                let result2 = document.getElementById("today");
+
+                let promoCredits = promotion - fairValue;
+
+                let monthly1 = (totalPrice - phoneDownpayment);
+                let monthly2 = (monthly1 - promoCredits) / 24;
+                let today = totalPrice * 0.0875;
+                let today2 = today + dcc + acc + phoneDownpayment - fairValue;
+
+                result1.innerHTML = "$" + (monthly2).toFixed(2);
+                result2.innerHTML = "$" + (today2).toFixed(2);
+            }
+        </script>
     </head>
 
 <body>
@@ -19,7 +42,48 @@
         </nav>
         <hr>
     </header>
-    <p>Work in progress.</p>
+    <table>
+        <tr>
+            <th><h2>Work in Progress.</h2></th>
+        </tr>
+        <tr>
+            <th>Price of Phone:</th>
+            <td><input type="number" id="phonePrice" value="0"/></td>
+        </tr>
+        <tr>
+            <th>Downpayment of Phone:</th>
+            <td><input type="number" id="downpayment" value="0"/></td>
+        </tr>
+        <tr><td> </td></tr>
+        <tr>
+            <th>Promo Value:</th>
+            <td><input type="number" id="promo" value="0"/></td>
+        </tr>
+        <tr>
+            <th>Fair Market Value:</th>
+            <td><input type="number" id="fmv" value="0"/></td>
+        </tr>
+        <tr><td> </td></tr>
+        <tr>
+            <th>Device Connection Charge:</th>
+            <td><input type="number" id="dcc" value="35"/></td>
+        </tr>
+        <tr>
+            <th>Accessory Cost:</th>
+            <td><input type="number" id="acc" value="0"/></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td><h3>Monthly: </h3></td>
+            <td id="monthly">$0.00</td>
+            <td><h3> | Today's Cost: </h3></td>
+            <td id="today">$0.00</td>
+        </tr>
+        <tr>
+            <td><input type="button" onclick="findMonthly()" value="Solve" /></td>
+        </tr>
+    </table>
 </body>
 
 </html>
