@@ -35,7 +35,9 @@
                 a1.innerHTML = "$" + (totalPrice/24).toFixed(2);
                 a3.innerHTML = "-$" + (phoneDownpayment/24).toFixed(2);
 
-                a2.innerHTML = "$" + (today + dcc);
+                let temp = today + dcc;
+                
+                a2.innerHTML = "$" + temp.toFixed(2);
                 a4.innerHTML = "$" + phoneDownpayment.toFixed(2);
 
                 a5.innerHTML = "-$" + (promoCredits/24).toFixed(2);
